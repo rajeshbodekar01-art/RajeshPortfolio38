@@ -1,0 +1,800 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+/* ==============================
+   GLOBAL SETTINGS
+================================ */
+
+:root {
+    --bg: #050608;
+    --card: #10131d;
+    --card-hover: #171e2b;
+    --green: #ffee00;
+    --cyan: #99ff00;
+    --text: #f5f6fa;
+    --muted: #8993a7;
+    --border: #242b38;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-code: 'Share Tech Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+::selection {
+    background: var(--green);
+    color: #000;
+}
+
+/* ==============================
+   MAIN WEBSITE LAYOUT
+================================ */
+
+#root {
+    width: 100%;
+    max-width: 1320px;
+    min-height: 100vh;
+    margin: auto;
+    border-left: 1px solid rgba(182, 255, 0, 0.2);
+    border-right: 1px solid rgba(182, 255, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+/* ==============================
+   NAVBAR
+================================ */
+
+.navbar {
+    width: 100%;
+    min-height: 95px;
+    padding: 0 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5, 6, 8, 0.95);
+    border-bottom: 1px solid rgba(0, 255, 170, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 28%;
+    height: 3px;
+    background: var(--green);
+    box-shadow: 0 0 15px var(--green);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--green);
+    font-size: 34px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.navbar nav a {
+    font-family: var(--font-code);
+    font-size: 15px;
+    color: var(--muted);
+    padding: 12px 17px;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--green);
+    background: rgba(182, 255, 0, 0.07);
+    border-color: rgba(182, 255, 0, 0.15);
+    text-shadow: 0 0 10px var(--green);
+}
+
+/* ==============================
+   HOME / HERO SECTION
+================================ */
+
+.hero {
+    min-height: 760px;
+    padding: 100px 8%;
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-text {
+    text-align: center;
+}
+
+.tag {
+    display: inline-block;
+    padding: 10px 22px;
+    margin-bottom: 55px;
+    color: var(--green);
+    border: 1px solid rgba(182, 255, 0, 0.4);
+    background: rgba(182, 255, 0, 0.05);
+    font-family: var(--font-code);
+    font-size: 15px;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 5vw, 76px);
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.hero h1 span {
+    color: var(--green);
+    text-shadow: 0 0 20px rgba(182, 255, 0, 0.3);
+}
+
+.hero h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(19px, 2.3vw, 31px);
+    color: var(--cyan);
+    margin-bottom: 24px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    color: var(--muted);
+    font-size: 23px;
+    line-height: 1.9;
+}
+
+/* ==============================
+   BUTTON DESIGN
+================================ */
+
+.primary-btn,
+.primary.btn {
+    display: inline-block;
+    padding: 16px 30px;
+    background: var(--green);
+    color: #050608;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 800;
+    border: 1px solid var(--green);
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 20px rgba(182, 255, 0, 0.1);
+}
+
+.primary-btn:hover,
+.primary.btn:hover {
+    background: transparent;
+    color: var(--green);
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(182, 255, 0, 0.3);
+}
+
+/* ==============================
+   PROFILE CARD
+================================ */
+
+.profile-circle {
+    min-height: 440px;
+    padding: 55px 25px;
+    border: 1px solid rgba(0, 255, 170, 0.4);
+    background: linear-gradient(145deg, #0c1919, #090b12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: 0.4s ease;
+}
+
+.profile-circle::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed rgba(0, 255, 170, 0.2);
+    pointer-events: none;
+}
+
+.profile-circle::after {
+    content: "ACCESS GRANTED";
+    position: absolute;
+    top: 30px;
+    color: #00c994;
+    font-family: var(--font-code);
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.profile-circle:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(0, 255, 170, 0.1);
+}
+
+.profile-icon {
+    width: 175px;
+    height: 175px;
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 75px;
+    margin-bottom: 30px;
+    background: rgba(182, 255, 0, 0.04);
+    box-shadow: 0 0 30px rgba(182, 255, 0, 0.1);
+}
+
+.profile-circle h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--green);
+    margin-bottom: 12px;
+}
+
+/* ==============================
+   COMMON PAGE SECTION
+================================ */
+
+.page {
+    min-height: 750px;
+    padding: 90px 6%;
+    text-align: center;
+}
+
+.page > h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4.5vw, 65px);
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.subtitle {
+    font-size: 23px;
+    color: var(--muted);
+    margin-bottom: 55px;
+}
+
+/* ==============================
+   COMMON CARD DESIGN
+================================ */
+
+.card,
+.info-card,
+.skill-card,
+.project-card {
+    background: linear-gradient(145deg, #12151f, #0c0f17);
+    border: 1px solid var(--border);
+    position: relative;
+    transition: 0.35s ease;
+}
+
+.card::before,
+.info-card::before,
+.skill-card::before,
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 52px;
+    height: 3px;
+    background: var(--green);
+    box-shadow: 0 0 10px rgba(182, 255, 0, 0.5);
+}
+
+.card:hover,
+.info-card:hover,
+.skill-card:hover,
+.project-card:hover {
+    transform: translateY(-8px);
+    background: var(--card-hover);
+    border-color: rgba(182, 255, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   ABOUT SECTION
+================================ */
+
+.card {
+    padding: 40px;
+    margin-bottom: 35px;
+}
+
+.card h2 {
+    font-family: var(--font-heading);
+    font-size: 27px;
+    color: var(--green);
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 21px;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.info-card {
+    padding: 35px 25px;
+    min-height: 175px;
+}
+
+.info-card h3 {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    color: var(--cyan);
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    font-size: 20px;
+    color: var(--muted);
+}
+
+/* ==============================
+   SKILLS SECTION
+================================ */
+
+/* SKILLS GRID */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* SKILL CARD */
+.skill-card {
+    min-height: 210px;
+    padding: 35px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    background: #10131d;
+    border: 1px solid #292d39;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* SINGLE EMOJI BOX */
+.skill-card .skill-icon {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 42px;
+    line-height: 1;
+
+    background: rgba(182, 255, 0, 0.1) !important;
+    border: 1px solid rgba(182, 255, 0, 0.1) !important;
+    border-radius: 5px;
+
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+/* REMOVE EXTRA LINES */
+.skill-card .skill-icon::before,
+.skill-card .skill-icon::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* SKILL NAME */
+.skill-card h3 {
+    color: #ffffff;
+    font-size: 19px;
+    text-align: center;
+}
+
+/* HOVER */
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(182, 255, 0, 0.1);
+}
+
+/* EMOJI ANIMATION */
+.skill-card .skill-icon {
+    animation: emojiShake 0.6s infinite ease-in-out;
+    transform-origin: center;
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==============================
+   PROJECTS SECTION
+================================ */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.project-card {
+    min-height: 330px;
+    padding: 35px;
+    text-align: left;
+}
+
+.project-icon {
+    width: 75px;
+    height: 75px;
+    display: grid;
+    place-items: center;
+    font-size: 38px;
+    margin-bottom: 25px;
+    background: rgba(182, 255, 0, 0.07);
+    border: 1px solid rgba(182, 255, 0, 0.2);
+}
+
+.project-card h2 {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    font-size: 20px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.tech {
+    display: inline-block;
+    padding: 9px 14px;
+    color: var(--cyan);
+    background: rgba(0, 229, 255, 0.05);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    font-family: var(--font-code);
+    font-size: 14px;
+}
+
+/* ==============================
+   CONTACT SECTION
+================================ */
+
+.contact-card {
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 55px 35px;
+    text-align: center;
+}
+
+.contact-icon {
+    width: 100px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 30px;
+    border: 1px solid var(--green);
+    border-radius: 50%;
+    font-size: 48px;
+    box-shadow: 0 0 25px rgba(182, 255, 0, 0.1);
+}
+
+.contact-card h2 {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    color: var(--green);
+    margin-bottom: 20px;
+}
+
+.contact-card p {
+    color: var(--muted);
+    font-size: 21px;
+    margin-bottom: 35px;
+}
+
+/* ==============================
+   FOOTER
+================================ */
+
+footer {
+    min-height: 120px;
+    padding: 25px;
+    border-top: 1px solid rgba(0, 255, 170, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--muted);
+}
+
+footer p {
+    font-family: var(--font-code);
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+footer p::first-letter {
+    color: var(--green);
+}
+
+/* ==============================
+   CUSTOM SCROLLBAR
+================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050608;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--green);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cyan);
+}
+
+/* ==============================
+   404 PAGE
+================================ */
+
+.page > .primary-btn {
+    margin-top: 25px;
+}
+
+/* ==============================
+   EMOJI SHAKE ANIMATION
+================================ */
+
+/* ==============================
+   EMOJI UP AND DOWN BOUNCE ANIMATION
+================================ */
+
+@keyframes bounceUpAndDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Moves the emoji 10px up */
+    }
+}
+
+.shake-emoji {
+    display: inline-block;
+    animation: bounceUpAndDown 4.2s infinite ease-in-out;
+}
+
+/* Optional: Make it bounce higher and faster when hovered */
+.shake-emoji:hover {
+    animation: bounceUpAndDown 0.4s infinite ease-in-out;
+    transform: scale(1.2) translateY(-12px);
+}
+
+/* ==============================
+   RESPONSIVE DESIGN - TABLET
+================================ */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 15px 4%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 70px 6%;
+        gap: 45px;
+    }
+
+    .profile-circle {
+        max-width: 500px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==============================
+   RESPONSIVE DESIGN - MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    #root {
+        border: none;
+    }
+
+    .navbar {
+        padding: 15px 10px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .navbar nav {
+        gap: 3px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+        padding: 8px 9px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 65px 20px;
+        gap: 40px;
+    }
+
+    .tag {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .profile-circle {
+        min-height: 350px;
+        padding: 40px 15px;
+    }
+
+    .profile-icon {
+        width: 135px;
+        height: 135px;
+        font-size: 60px;
+    }
+
+    .page {
+        padding: 65px 18px;
+        min-height: 650px;
+    }
+
+    .page > h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        margin-bottom: 35px;
+    }
+
+    .card {
+        padding: 25px 18px;
+    }
+
+    .card p,
+    .info-card p,
+    .project-card p,
+    .contact-card p {
+        font-size: 18px;
+    }
+
+    .info-grid,
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        min-height: 145px;
+    }
+
+    .skill-card {
+        min-height: 160px;
+    }
+
+    .project-card {
+        min-height: 290px;
+        padding: 28px 22px;
+    }
+
+    .contact-card {
+        padding: 35px 20px;
+    }
+
+    .footer p {
+        font-size: 13px;
+    }
+}
