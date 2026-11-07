@@ -583,9 +583,7 @@ footer p {
     letter-spacing: 1px;
 }
 
-footer p::first-letter {
-    color: var(--green);
-}
+
 
 /* ==============================
    CUSTOM SCROLLBAR
