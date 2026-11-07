@@ -199,9 +199,9 @@ function App() {
             </main> 
 
             <footer> 
-                <p> - Made with💜 by Raजेsh | © 2026</p> 
+                <p> - Made with 💜 by Raजेsh | © 2026</p> 
             </footer> 
-        </BrowserRouter> 
+        </BrowserRouter>
     ); 
 } 
 
